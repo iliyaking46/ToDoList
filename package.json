@@ -2,7 +2,7 @@
   "name": "todolist",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "npm run clean:tmp && parcel src/index.html -p 3000 --out-dir .tmp",
     "build": "npm run lint && npm run clean && npm run build:parcel",
@@ -19,9 +19,8 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "autoprefixer": "^7.2.5",
-    "babel": "^6.23.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -32,7 +31,15 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-prettier": "^2.5.0",
-    "parcel-bundler": "^1.6.2",
+    "parcel-bundler": "^1.4.1",
+    "postcss-modules": "^1.1.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.10.2",
+    "prettier-stylelint": "^0.4.2",
+    "rimraf": "^2.6.2",
+    "stylelint": "^8.4.0"
+  },
+  "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   }
