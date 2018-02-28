@@ -1,7 +1,12 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb-base", "eslint:recommended", "prettier"],
-  "plugins": ["prettier"],
+  "extends": [
+    "airbnb-base", 
+    "eslint:recommended", 
+    "prettier",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["prettier", "react"],
   "env": {
     "browser": true,
     "node": true,
@@ -9,7 +14,10 @@
   },
   "parserOptions": {
     "ecmaVersion": 6,
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "prettier/prettier": [
@@ -18,6 +26,8 @@
         "singleQuote": true, 
         "trailingComma": "all"
       }
-    ]
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
   }
 }
