@@ -3,22 +3,19 @@ import React, { Component } from 'react';
 export default class TodoInput extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: this.props.todoText };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.addTodo = this.addTodo.bind(this);
+    this.state = { value: this.props.todoText || '' };
   }
 
-  handleChange(e) {
+  handleChange = e => {
     this.setState({ value: e.target.value });
-  }
+  };
 
-  addTodo(todo) {
-    if (todo.length > 0) {
-      this.props.addTodo(todo);
+  addTodo = () => {
+    if (this.state.value.length > 0) {
+      this.props.addTodo(this.state.value);
       this.setState({ value: '' });
     }
-  }
+  };
 
   render() {
     return (
@@ -30,10 +27,7 @@ export default class TodoInput extends Component {
           onChange={this.handleChange}
         />
         <div className="input-group-append">
-          <button
-            className="btn btn-primary"
-            onClick={() => this.addTodo(this.state.value)}
-          >
+          <button className="btn btn-primary" onClick={this.addTodo}>
             Submit
           </button>
         </div>

@@ -4,7 +4,7 @@ export default ({ id, isEditing, removeTodo }) =>
   isEditing ? (
     ''
   ) : (
-    <button className="btn btn-danger" onClick={() => removeTodo(id)}>
+    <button className="btn btn-danger mr-3" onClick={() => removeTodo(id)}>
       Remove
     </button>
   );

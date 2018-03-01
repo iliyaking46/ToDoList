@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TodoInput from './TodoInput';
-import TodoItem from './todoitem/Item';
+import TodoItem from './todoItem/Item';
 
 const todos = [
   {
@@ -46,9 +46,10 @@ export default class App extends Component {
 
   editTodo = (id, value) => {
     let todos = this.state.todos.slice();
-    todos[id].text = value;
+    let idx = todos.map(elem => elem.id).indexOf(id);
+    todos[idx].text = value;
     this.setState({
-      todos
+      todos,
     });
   };
 
@@ -58,7 +59,7 @@ export default class App extends Component {
         <div className="todo-wrapper text-center mt-5">
           <h2 className="page-title">ToDoList</h2>
           <TodoInput todoText="" addTodo={this.addTodo} />
-          <ul>
+          <ul className="list-group">
             {this.state.todos.map(todo => (
               <TodoItem
                 todo={todo}
@@ -67,8 +68,7 @@ export default class App extends Component {
                 removeTodo={this.removeTodo}
                 editTodo={this.editTodo}
               />
-            ))
-            }
+            ))}
           </ul>
         </div>
       </div>

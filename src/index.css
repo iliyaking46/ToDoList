@@ -1,9 +1,0 @@
-.list-group-item{
-    padding-right: 85px;
-}
-.list-group-item .delete-button{
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-}

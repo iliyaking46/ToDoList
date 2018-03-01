@@ -17,12 +17,12 @@ export default class TodoItem extends Component {
   };
 
   saveEdit = id => {
-    const value = document.getElementById(id).value;
-    console.log(value);
+    const text = document.getElementById(id).value;
     this.setState({
-      value: value,
+      value: text,
     });
-    this.props.editTodo(id, value);
+
+    this.props.editTodo(id, text);
     this.changeEdit();
   };
 
@@ -39,9 +39,6 @@ export default class TodoItem extends Component {
             value={this.state.value}
             id={this.props.todo.id}
           />
-          {/*
-            onChange={event => this.editTodo(this.props.id, event.target.value)}
-          */}
           <EditButton
             isEditing={this.state.isEditing}
             changeEdit={this.changeEdit}
