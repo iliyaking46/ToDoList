@@ -11,7 +11,7 @@ export default class TodoApp extends React.Component {
   }
 
   onAddTodo = todo => {
-    const todos = this.state.todos;
+    const { todos } = this.state;
     this.setState({
       todos: [...todos, todo],
     });
@@ -23,12 +23,23 @@ export default class TodoApp extends React.Component {
     this.setState({ todos });
   };
 
+  onDeleteTodo = index => {
+    this.setState({
+      todos: this.state.todos.filter((item, id) => id !== index),
+    });
+  };
+
   render() {
-    const todos = this.state.todos;
+    const { todos } = this.state;
     return (
       <div className="container mt-5">
+        <h2 className="text-center">TodoApp</h2>
         <TodoAppHeader onAddTodo={this.onAddTodo} />
-        <TodoList onChangeTodo={this.onChangeTodo} todos={todos} />
+        <TodoList
+          onChangeTodo={this.onChangeTodo}
+          onDeleteTodo={this.onDeleteTodo}
+          todos={todos}
+        />
       </div>
     );
   }

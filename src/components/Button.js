@@ -1,7 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Button(props) {
-  const onClick = props.onClick;
-  const children = props.children;
-  return <button className="btn btn-primary mr-2" onClick={onClick}>{children}</button>;
-}
+const propTypes = {
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.string,
+};
+
+const defaultProps = {
+  children: '',
+};
+
+export const Button = ({ onClick, children }) => (
+  <button className="btn btn-primary mx-3" onClick={onClick}>
+    {children}
+  </button>
+);
+
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
+
+export default Button;
